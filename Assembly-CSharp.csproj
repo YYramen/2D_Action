@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Attributes\HealthSystemAttribute.cs" />
     <Compile Include="Assets\Scripts\Attributes\ModifyHealthAttribute.cs" />
     <Compile Include="Assets\Scripts\Attributes\ResourceAttribute.cs" />
+    <Compile Include="Assets\Scripts\BackGroundControl.cs" />
     <Compile Include="Assets\Scripts\BulletControl.cs" />
     <Compile Include="Assets\Scripts\Conditions\Actions\ConsumeResourceAction.cs" />
     <Compile Include="Assets\Scripts\Conditions\Actions\CreateObjectAction.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\Scripts\CrossHairControl.cs" />
     <Compile Include="Assets\Scripts\EffectControl.cs" />
     <Compile Include="Assets\Scripts\EnemyBulletControl.cs" />
+    <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ObjectCreatorArea.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ObjectShooter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PickUpAndHold.cs" />
