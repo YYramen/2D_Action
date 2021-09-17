@@ -11,7 +11,6 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float m_jumppower = 1f;
     /// <summary>接地フラグ </summary>
     bool m_jump = false;
-    string groundtag = "Ground";
 
     /// <summary>弾のプレハブ </summary>
     [SerializeField] GameObject m_bulletPrefab = null;
@@ -21,6 +20,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] int m_bulletLimit;
     /// <summary>弾のカウント</summary>
     public int m_bulletCount = 0;
+
+    //[SerializeField] float m_playerHealth = 1f;
 
     Rigidbody2D m_rb;
     Animator m_anim;

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BulletControl : MonoBehaviour
 {
-    Rigidbody2D rigidBody;
-    [SerializeField] float lifeTime = 3f;
+    //[SerializeField] float m_bulletPower = 1f;
     [SerializeField] float m_bulletSpeed = 15;
     [SerializeField] GameObject m_effectPrefab = default;
 
+    Rigidbody2D rigidBody;
     GameObject m_player;
     PlayerControl m_playerScript;
-    [SerializeField] float m_near = 0.1f;
+    //[SerializeField] float m_near = 0.1f;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();

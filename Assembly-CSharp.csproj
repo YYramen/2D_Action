@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Attributes\ModifyHealthAttribute.cs" />
     <Compile Include="Assets\Scripts\Attributes\ResourceAttribute.cs" />
     <Compile Include="Assets\Scripts\BackGroundControl.cs" />
+    <Compile Include="Assets\Scripts\BoundControl.cs" />
     <Compile Include="Assets\Scripts\BulletControl.cs" />
     <Compile Include="Assets\Scripts\Conditions\Actions\ConsumeResourceAction.cs" />
     <Compile Include="Assets\Scripts\Conditions\Actions\CreateObjectAction.cs" />
@@ -103,7 +104,9 @@
     <Compile Include="Assets\Scripts\Movement\Push.cs" />
     <Compile Include="Assets\Scripts\Movement\Rotate.cs" />
     <Compile Include="Assets\Scripts\Movement\Wander.cs" />
+    <Compile Include="Assets\Scripts\PlayerBulletEffectControl.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\PowerUpControl.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\BaseClasses\Action.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\BaseClasses\ConditionBase.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\BaseClasses\Physics2DObject.cs" />
