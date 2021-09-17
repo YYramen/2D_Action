@@ -7,6 +7,7 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] GameObject m_enemyBulletPrefab = default;
     [SerializeField] Transform m_muzzle = null;
 
+    float m_lifeTime = 10f;
     float m_targetTime = 1.0f;
     float m_currentTime = 0;
     Animator m_anim = default;
@@ -25,6 +26,11 @@ public class EnemyControl : MonoBehaviour
         {
             Instantiate(m_enemyBulletPrefab, m_muzzle.position, m_enemyBulletPrefab.transform.rotation);
             m_currentTime = 0;
+        }
+
+        if (m_currentTime > m_lifeTime)
+        {
+            Destroy(gameObject);
         }
     }
 }

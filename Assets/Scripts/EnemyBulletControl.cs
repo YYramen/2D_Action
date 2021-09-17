@@ -20,18 +20,15 @@ public class EnemyBulletControl : MonoBehaviour
         if (m_player)
         {
             Vector3 dir = m_player.transform.position - transform.position;
-            //角度を取得
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Vector3 euler = new Vector3(0, 0, angle + m_angleOffset);
-            transform.rotation = Quaternion.Euler(euler);
+            ////角度を取得
+            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            //Vector3 euler = new Vector3(0, 0, angle + m_angleOffset);
+            //transform.rotation = Quaternion.Euler(euler);
+            //m_rb.velocity = dir.normalized * m_bulletSpeed;
+
+
             m_rb.velocity = dir.normalized * m_bulletSpeed;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,7 +36,8 @@ public class EnemyBulletControl : MonoBehaviour
         if (m_effectPrefab && collision.CompareTag("Player"))
         {
             Instantiate(m_effectPrefab, this.transform.position, this.transform.rotation);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 }
