@@ -16,11 +16,11 @@ public class BackGroundControl : MonoBehaviour
     void Update()
     {
         //横方向にスクロール
-        transform.position -= new Vector3(Time.deltaTime, 0 * speed);
+        transform.position -= new Vector3(Time.deltaTime * speed, 0);
         float width = m_sprite.bounds.size.x;
-        if (transform.position.x < -width)
+        if (transform.position.x < - width)
         {
-            transform.position += Vector3.back * width * 2;
+            this.transform.position += Vector3.right * width * 2;
         }
     }
 }
