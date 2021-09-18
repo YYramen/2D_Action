@@ -58,7 +58,6 @@ public class BulletControl : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             
-            Debug.Log("プレイヤーに当たった");
         }
         Destroy(gameObject);
     }

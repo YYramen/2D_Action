@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUpControl : MonoBehaviour
 {
+    [SerializeField] GameObject m_effectPrefab = default;
     [SerializeField] float m_bubbleSpeed = 5f;
 
     GameObject m_player = default;
@@ -30,6 +31,11 @@ public class PowerUpControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Instantiate(m_effectPrefab, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

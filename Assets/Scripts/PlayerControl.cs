@@ -21,10 +21,16 @@ public class PlayerControl : MonoBehaviour
     /// <summary>弾のカウント</summary>
     public int m_bulletCount = 0;
 
+    float m_h;
+
     //[SerializeField] float m_playerHealth = 1f;
 
     Rigidbody2D m_rb;
     Animator m_anim;
+
+    bool m_isRun = false;
+    bool m_isJump = false;
+    bool m_isRunShot = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,34 +43,33 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         Vector3 scale = transform.localScale;
-        float h = Input.GetAxisRaw("Horizontal");
+        m_h = Input.GetAxisRaw("Horizontal");
 
         //移動、ジャンプ処理
-        if (h > 0)
+        if (m_h > 0)
         {
             m_rb.velocity = new Vector2(m_speed, m_rb.velocity.y);
-            m_anim.SetBool("Run", true);
+            m_isRun = true;
         }
 
-        else if (h < 0)
+        else if (m_h < 0)
         {
             m_rb.velocity = new Vector2(-m_speed, m_rb.velocity.y);
-            m_anim.SetBool("Run", true);
+            m_isRun = true;
         }
-
         else
         {
-            m_anim.SetBool("Run", false);
+            m_isRunShot = false;
+            m_isRun = false;
         }
 
         if (Input.GetButtonDown("Jump"))
         {
             if (m_jump == true)
             {
-                m_anim.Play("Jump");
                 m_rb.AddForce(Vector2.up * m_jumppower, ForceMode2D.Impulse);
+                m_isJump = true;
                 m_jump = false;
-                m_anim.SetBool("Jump", true);
             }
         }
         //左右に移動時にスプライトを反転させる
@@ -80,8 +85,17 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+          
             Fire();
             m_bulletCount++;
+            
+        }
+
+        if (m_anim)
+        {
+            m_anim.SetBool("Run", m_isRun);
+            m_anim.SetBool("Jump", m_isJump);
+            m_anim.SetBool("RunShot", m_isRunShot);
         }
     }
 
@@ -96,13 +110,17 @@ public class PlayerControl : MonoBehaviour
                 {
                     go.transform.Rotate(new Vector3(0, 0, 180f));
                 }
+                if(m_h > 0 || m_h < 0 )
+                {
+                    m_isRunShot = true;
+                }
             }
         }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        m_anim.SetBool("Jump", false);
         m_jump = true;
+        m_isJump = false;
     }
 }

@@ -7,6 +7,7 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] GameObject m_enemyBulletPrefab = default;
     [SerializeField] Transform m_muzzle = null;
     [SerializeField] GameObject m_Death = default;
+    [SerializeField] GameObject m_powerUp = default;
 
     [SerializeField] float m_lifeTime = 10f;
     [SerializeField] float m_enemyHealth = 1f;
@@ -35,6 +36,7 @@ public class EnemyControl : MonoBehaviour
         if (m_enemyHealth == 0)
         {
             Instantiate(m_Death, this.transform.position, Quaternion.identity);
+            Instantiate(m_powerUp, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (m_destroyTime > m_lifeTime)

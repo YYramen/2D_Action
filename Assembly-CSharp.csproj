@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\EffectControl.cs" />
     <Compile Include="Assets\Scripts\EnemyBulletControl.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
+    <Compile Include="Assets\Scripts\EnemyGenerateControl.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ObjectCreatorArea.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ObjectShooter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PickUpAndHold.cs" />
