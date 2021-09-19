@@ -13,7 +13,7 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] float m_enemyHealth = 1f;
     float m_targetTime = 1.0f;
     float m_currentTime = 0;
-    float m_destroyTime = 0f;
+
     Animator m_anim = default;
     
     // Start is called before the first frame update
@@ -25,7 +25,6 @@ public class EnemyControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_destroyTime += Time.deltaTime;
         m_currentTime += Time.deltaTime;
         if (m_targetTime < m_currentTime)
         {
@@ -37,10 +36,6 @@ public class EnemyControl : MonoBehaviour
         {
             Instantiate(m_Death, this.transform.position, Quaternion.identity);
             Instantiate(m_powerUp, this.transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-        else if (m_destroyTime > m_lifeTime)
-        {
             Destroy(gameObject);
         }
     }

@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Conditions\ConditionCollision.cs" />
     <Compile Include="Assets\Scripts\Conditions\ConditionKeyPress.cs" />
     <Compile Include="Assets\Scripts\Conditions\ConditionRepeat.cs" />
+    <Compile Include="Assets\Scripts\CrabControl.cs" />
     <Compile Include="Assets\Scripts\CrossHairControl.cs" />
     <Compile Include="Assets\Scripts\EffectControl.cs" />
     <Compile Include="Assets\Scripts\EnemyBulletControl.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\Scripts\Gameplay\PickUpAndHold.cs" />
     <Compile Include="Assets\Scripts\Gameplay\TimedSelfDestruct.cs" />
     <Compile Include="Assets\Scripts\GroundCheck.cs" />
+    <Compile Include="Assets\Scripts\IsGroundControl.cs" />
     <Compile Include="Assets\Scripts\Movement\AutoMove.cs" />
     <Compile Include="Assets\Scripts\Movement\AutoRotate.cs" />
     <Compile Include="Assets\Scripts\Movement\CameraFollow.cs" />
