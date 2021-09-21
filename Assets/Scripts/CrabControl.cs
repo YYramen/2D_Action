@@ -42,6 +42,8 @@ public class CrabControl : MonoBehaviour
         if (m_enemyHealth == 0 && m_death)
         {
             Instantiate(m_death, this.transform.position, Quaternion.identity);
+            Instantiate(m_powerUp, this.transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 

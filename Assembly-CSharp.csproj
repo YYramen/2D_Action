@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Gameplay\TimedSelfDestruct.cs" />
     <Compile Include="Assets\Scripts\GroundCheck.cs" />
     <Compile Include="Assets\Scripts\IsGroundControl.cs" />
+    <Compile Include="Assets\Scripts\JumperControl.cs" />
     <Compile Include="Assets\Scripts\Movement\AutoMove.cs" />
     <Compile Include="Assets\Scripts\Movement\AutoRotate.cs" />
     <Compile Include="Assets\Scripts\Movement\CameraFollow.cs" />

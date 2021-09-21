@@ -167,8 +167,9 @@ MonoBehaviour:
   m_bulletPrefab: {fileID: 4577144587987354552, guid: b1ae290445932c84796b771aa0c7185e,
     type: 3}
   m_muzzle: {fileID: 8948847554404620437}
-  m_Death: {fileID: 0}
-  m_powerUp: {fileID: 0}
+  m_death: {fileID: 7561866002247880611, guid: b325cd6c3f24d3642832cbbd7e904193, type: 3}
+  m_powerUp: {fileID: 3393455755918563071, guid: 329272477344baa4a9da662bfd53686d,
+    type: 3}
   m_moveSpeed: 3
   m_enemyHealth: 1
 --- !u!1 &8948847554404620436
