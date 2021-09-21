@@ -16,75 +16,47 @@ public class EnemyGenerateControl : MonoBehaviour
 {
     /// <summary>ウエーブとして生成するプレハブの配列</summary>
     [SerializeField] GameObject[] m_enemyPrefabs = null;
-    /// <summary>敵を生成する位置として設定するオブジェクト</summary>
-    [SerializeField] Transform m_spawnPoint = null;
-    /// <summary>１ウェーブ内での敵プレハブの生成間隔（秒）</summary>
-    [SerializeField] float m_spawnIntervalInWave = 2f;
-    /// <summary>１ウェーブ内での敵プレハブを生成する回数</summary>
-    [SerializeField] int m_spawnTimesInWave = 5;
-    /// <summary>敵生成中フラグ</summary>
-    [SerializeField] bool m_isWorking = false;
-    /// <summary>m_enemyPrefabs の添字</summary>
-    int m_index;
-    /// <summary>１ウェーブ内で敵プレハブを生成した回数を数えるためのカウンタ変数</summary>
-    int m_spawnCounter;
-    /// <summary>１ウェーブ内での m_spawnIntervalInWave をカウントするためのカウンター</summary>
-    float m_timer;
-    /// <summary>ボスが生成済みか判定するフラグ</summary>
-    bool m_isBossSpawned;
+    //　次に敵が出現するまでの時間
+    [SerializeField] float m_appearNextTime;
+    //　この場所から出現する敵の数
+    [SerializeField] int m_maxNumOfEnemys;
+    //　今何人の敵を出現させたか（総数）
+    private int m_numberOfEnemys;
+    //　待ち時間計測フィールド
+    private float m_elapsedTime;
 
+
+    private void Start()
+    {
+        m_numberOfEnemys = 0;
+        m_elapsedTime = 0f;
+    }
     void Update()
     {
-        // 停止中の場合は何もしない
-        if (!m_isWorking) return;
-
-        // ウェーブが切り替わった後は、敵が一体もいなくなったら次の敵を生成する
-        if (m_spawnCounter == 0)
+        if (m_numberOfEnemys >= m_maxNumOfEnemys)
         {
-            int enemyCount = GameObject.FindObjectsOfType<EnemyControl>().Length;    // タグで検索してもよい
-            // 敵がまだ残っていたら何もしない
-            if (enemyCount > 0)
-            {
-                return;
-            }
+            return;
         }
 
-        // ウェーブ内で敵の生成間隔を待つ
-        m_timer += Time.deltaTime;
-        if (m_timer > m_spawnIntervalInWave)
+        //　経過時間を足す
+        m_elapsedTime += Time.deltaTime;
+
+        //　経過時間が経ったら
+        if (m_elapsedTime > m_appearNextTime)
         {
-            // まだウェーブを生成し、タイマーをリセットして m_spawnCounter をカウントアップする
-            m_timer = 0;
-            m_spawnCounter++;
-            Debug.LogFormat("m_spawnCounter: {0}", m_spawnCounter);
+            m_elapsedTime = 0f;
 
-            // 敵を生成する
-            GameObject go = Instantiate(m_enemyPrefabs[m_index]);
-            go.transform.position = m_spawnPoint.position;
-
-            // ウェーブが終わったら、次のウェーブに映る
-            if (m_spawnCounter > m_spawnTimesInWave - 1)
-            {
-                m_spawnCounter = 0;
-                Random.Range(0, m_index);
-                Debug.LogFormat("m_index: {0}", m_index);
-            }
+            AppearEnemy();
         }
     }
-
-    /// <summary>
-    /// 敵の生成を止める
-    /// </summary>
-    public void StopGeneration()
+    void AppearEnemy()
     {
-        m_isWorking = false;
-    }
+        //　出現させる敵をランダムに選ぶ
+        var randomValue = Random.Range(0, m_enemyPrefabs.Length);
 
-    /// <summary>
-    /// 敵の生成を始める
-    /// </summary>
-    public void StartGeneration()
-    {
-        m_isWorking = true;
+        GameObject.Instantiate(m_enemyPrefabs[randomValue], transform.position, Quaternion.identity);
+
+        m_numberOfEnemys++;
+        m_elapsedTime = 0f;
     }
 }

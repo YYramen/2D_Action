@@ -7,7 +7,7 @@ public class CrabControl : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject m_bulletPrefab = default;
     [SerializeField] Transform m_muzzle = null;
-    [SerializeField] GameObject m_Death = default;
+    [SerializeField] GameObject m_death = default;
     [SerializeField] GameObject m_powerUp = default;
 
     [SerializeField] float m_moveSpeed = -5f;
@@ -38,13 +38,31 @@ public class CrabControl : MonoBehaviour
                 m_currentTime = 0;
             }
         }
+
+        if (m_enemyHealth == 0 && m_death)
+        {
+            Instantiate(m_death, this.transform.position, Quaternion.identity);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             m_isGround = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Lava")
+        {
+            Destroy(gameObject);
+        }
+
+        if(collision.gameObject.tag == "Bullet")
+        {
+            m_enemyHealth -= 1;
         }
     }
 }
