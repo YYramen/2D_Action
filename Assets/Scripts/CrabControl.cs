@@ -27,9 +27,16 @@ public class CrabControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_isGround == true)
+        m_currentTime += Time.deltaTime;
+        if (m_isGround == true)
         {
             m_rb.velocity = new Vector3(-1 * m_moveSpeed, 0);
+
+            if (m_targetTime < m_currentTime)
+            {
+                Instantiate(m_bulletPrefab, m_muzzle.position, m_bulletPrefab.transform.rotation);
+                m_currentTime = 0;
+            }
         }
     }
 

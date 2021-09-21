@@ -14,12 +14,11 @@ public class EnemyControl : MonoBehaviour
     float m_targetTime = 1.0f;
     float m_currentTime = 0;
 
-    Animator m_anim = default;
     
     // Start is called before the first frame update
     void Start()
     {
-        m_anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame

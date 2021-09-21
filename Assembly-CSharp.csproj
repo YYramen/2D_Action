@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Conditions\ConditionCollision.cs" />
     <Compile Include="Assets\Scripts\Conditions\ConditionKeyPress.cs" />
     <Compile Include="Assets\Scripts\Conditions\ConditionRepeat.cs" />
+    <Compile Include="Assets\Scripts\CrabBulletControl.cs" />
     <Compile Include="Assets\Scripts\CrabControl.cs" />
     <Compile Include="Assets\Scripts\CrossHairControl.cs" />
     <Compile Include="Assets\Scripts\EffectControl.cs" />
