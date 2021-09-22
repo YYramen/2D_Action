@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControl : MonoBehaviour
@@ -18,9 +19,11 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Transform m_muzzle = null;
     /// <summary>弾の上限</summary>
     [SerializeField] int m_bulletLimit;
+    [SerializeField] float m_reduceSlider = 0.05f;
     /// <summary>弾のカウント</summary>
     public int m_bulletCount = 0;
 
+    Slider m_slider = default;
     float m_h;
 
     //[SerializeField] float m_playerHealth = 1f;
@@ -37,6 +40,7 @@ public class PlayerControl : MonoBehaviour
     {
         m_anim = GetComponent<Animator>();
         m_rb = GetComponent<Rigidbody2D>();
+        m_slider = GameObject.Find("Slider3").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -122,5 +126,10 @@ public class PlayerControl : MonoBehaviour
     {
         m_jump = true;
         m_isJump = false;
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            m_slider.value -= m_reduceSlider;
+        }
     }
 }

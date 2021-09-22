@@ -25,11 +25,15 @@ public class EnemyGenerateControl : MonoBehaviour
     //　待ち時間計測フィールド
     private float m_elapsedTime;
 
+    GameObject m_object = default;
+    GameObject m_enemyGenerator = default;
+
 
     private void Start()
     {
         m_numberOfEnemys = 0;
         m_elapsedTime = 0f;
+        m_enemyGenerator = GameObject.Find("EnemyGenerator");
     }
     void Update()
     {

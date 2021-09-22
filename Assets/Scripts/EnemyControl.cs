@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyControl : MonoBehaviour
 {
@@ -8,12 +9,18 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] Transform m_muzzle = null;
     [SerializeField] GameObject m_death = default;
     [SerializeField] GameObject m_powerUp = default;
+    [SerializeField] float m_reduceSlider = 0.05f;
 
+    Slider m_slider = default;
     [SerializeField] float m_lifeTime = 10f;
     [SerializeField] float m_enemyHealth = 1f;
     float m_targetTime = 1.0f;
     float m_currentTime = 0;
 
+    private void Start()
+    {
+        m_slider = GameObject.Find("Slider").GetComponent<Slider>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +35,7 @@ public class EnemyControl : MonoBehaviour
         {
             Instantiate(m_death, this.transform.position, Quaternion.identity);
             Instantiate(m_powerUp, this.transform.position, Quaternion.identity);
+            m_slider.value -= m_reduceSlider;
             Destroy(gameObject);
         }
     }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5532929880026166459}
   m_Layer: 0
   m_Name: OctopusBullet
-  m_TagString: EnemyBullet
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3561a93fc3e9de64ba468a9baa83d2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletSpeed: 50
+  m_bulletSpeed: 10
   m_effectPrefab: {fileID: 451116165878334177, guid: 99a46395339d8f847a500a174b57e3f6,
     type: 3}
 --- !u!96 &-5532929880026166459

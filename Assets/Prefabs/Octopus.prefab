@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706565836647090501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.99283, y: 3.0589755, z: 0.000030517578}
+  m_LocalPosition: {x: 19.6, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 706565837701296989}
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_death: {fileID: 7561866002247880611, guid: b325cd6c3f24d3642832cbbd7e904193, type: 3}
   m_powerUp: {fileID: 3393455755918563071, guid: 329272477344baa4a9da662bfd53686d,
     type: 3}
+  m_reduceSlider: 0.05
   m_lifeTime: 10
   m_enemyHealth: 1
 --- !u!58 &706565836647090499
