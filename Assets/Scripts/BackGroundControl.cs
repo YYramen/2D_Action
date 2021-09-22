@@ -15,10 +15,14 @@ public class BackGroundControl : MonoBehaviour
 
     void Update()
     {
-        //横方向にスクロール
+        Scroll();
+    }
+
+    public void Scroll()
+    {
         transform.position -= new Vector3(Time.deltaTime * speed, 0);
         float width = m_sprite.bounds.size.x;
-        if (transform.position.x < - width)
+        if (transform.position.x < -width)
         {
             this.transform.position += Vector3.right * width * 2;
         }

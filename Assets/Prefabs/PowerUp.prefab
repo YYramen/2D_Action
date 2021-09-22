@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7966985478052963485}
   m_Layer: 0
   m_Name: PowerUp
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_effectPrefab: {fileID: 8802786489475033694, guid: 4ca99278796c3ac48a6642200467a6cc,
     type: 3}
   m_bubbleSpeed: 10
+  m_increaseSlider: 0.05
 --- !u!96 &-7966985478052963485
 TrailRenderer:
   serializedVersion: 2

@@ -37,7 +37,7 @@ public class PowerUpControl : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            m_slider.value += m_increaseSlider;
+            //m_slider.value += m_increaseSlider;
         }
         if (collision.gameObject.tag == "Bullet")
         {

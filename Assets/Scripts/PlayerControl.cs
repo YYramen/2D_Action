@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControl : MonoBehaviour
 {
+    [SerializeField] float m_health = 3f;
     /// <summary>移動時の速度 </summary>
     [SerializeField] float m_speed = 5f;
     /// <summary>ジャンプ時にかける力 </summary>
@@ -19,11 +20,13 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Transform m_muzzle = null;
     /// <summary>弾の上限</summary>
     [SerializeField] int m_bulletLimit;
-    [SerializeField] float m_reduceSlider = 0.05f;
     /// <summary>弾のカウント</summary>
     public int m_bulletCount = 0;
 
-    Slider m_slider = default;
+    [SerializeField] float m_reduceSlider = 0.05f;
+    [SerializeField] float m_increaseSlider = 0.05f;
+    Slider m_powerUpSlider = default;
+    Slider m_healthSlider = default;
     float m_h;
 
     //[SerializeField] float m_playerHealth = 1f;
@@ -40,7 +43,8 @@ public class PlayerControl : MonoBehaviour
     {
         m_anim = GetComponent<Animator>();
         m_rb = GetComponent<Rigidbody2D>();
-        m_slider = GameObject.Find("Slider3").GetComponent<Slider>();
+        m_healthSlider = GameObject.Find("Slider3").GetComponent<Slider>();
+        m_powerUpSlider = GameObject.Find("Slider2").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -54,17 +58,14 @@ public class PlayerControl : MonoBehaviour
         {
             m_rb.velocity = new Vector2(m_speed, m_rb.velocity.y);
             m_isRun = true;
+            m_isRunShot = false;
         }
 
         else if (m_h < 0)
         {
             m_rb.velocity = new Vector2(-m_speed, m_rb.velocity.y);
             m_isRun = true;
-        }
-        else
-        {
             m_isRunShot = false;
-            m_isRun = false;
         }
 
         if (Input.GetButtonDown("Jump"))
@@ -89,10 +90,15 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-          
+            m_isRunShot = true;
             Fire();
             m_bulletCount++;
             
+        }
+
+        if(m_health == 0)
+        {
+            Destroy(gameObject);
         }
 
         if (m_anim)
@@ -114,10 +120,6 @@ public class PlayerControl : MonoBehaviour
                 {
                     go.transform.Rotate(new Vector3(0, 0, 180f));
                 }
-                if(m_h > 0 || m_h < 0 )
-                {
-                    m_isRunShot = true;
-                }
             }
         }
     }
@@ -126,10 +128,20 @@ public class PlayerControl : MonoBehaviour
     {
         m_jump = true;
         m_isJump = false;
+    }
 
-        if (collision.gameObject.tag == "Enemy")
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
         {
-            m_slider.value -= m_reduceSlider;
+            m_health -= 1;
+            m_healthSlider.value -= m_reduceSlider;
+            m_powerUpSlider.value = 0;
+        }
+
+        if(collision.gameObject.tag == "PowerUp")
+        {
+            m_powerUpSlider.value += m_increaseSlider;
         }
     }
 }

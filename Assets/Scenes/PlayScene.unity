@@ -210,7 +210,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_Sprite: {fileID: 21300000, guid: d51b2c47d67d1b84eb273b9c3cb56277, type: 3}
   m_Color: {r: 0.9811321, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -9343,7 +9343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1009180048
 Transform:
   m_ObjectHideFlags: 0
@@ -10811,14 +10811,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6737386160303207418, guid: b99613bb9d1133a49be78e7038bbcec5,
         type: 3}
+      propertyPath: m_speed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737386160303207418, guid: b99613bb9d1133a49be78e7038bbcec5,
+        type: 3}
+      propertyPath: m_health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737386160303207418, guid: b99613bb9d1133a49be78e7038bbcec5,
+        type: 3}
       propertyPath: m_bulletLimit
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737386160303207418, guid: b99613bb9d1133a49be78e7038bbcec5,
+        type: 3}
+      propertyPath: m_reduceSlider
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737386160303207418, guid: b99613bb9d1133a49be78e7038bbcec5,
+        type: 3}
+      propertyPath: m_increaseSlider
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6737386160303207420, guid: b99613bb9d1133a49be78e7038bbcec5,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6737386160303207422, guid: b99613bb9d1133a49be78e7038bbcec5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c82560a526b9e944581aefd56b105135, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b99613bb9d1133a49be78e7038bbcec5, type: 3}
 --- !u!1001 &8580006061195541475
@@ -10828,6 +10853,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1927590720207387848, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927590720207387848, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990526369905557544, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990526369905557544, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.82
+      objectReference: {fileID: 0}
     - target: {fileID: 3317230770461264068, guid: 699d500776cbf984caeeac458bd36a27,
         type: 3}
       propertyPath: m_IsTrigger
@@ -10837,6 +10882,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580006061567954280, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.9072
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580006061567954280, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.9072
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580006061567954280, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.9072
       objectReference: {fileID: 0}
     - target: {fileID: 8580006061567954280, guid: 699d500776cbf984caeeac458bd36a27,
         type: 3}
@@ -10891,7 +10951,7 @@ PrefabInstance:
     - target: {fileID: 8580006061567954283, guid: 699d500776cbf984caeeac458bd36a27,
         type: 3}
       propertyPath: m_Name
-      value: Jumper
+      value: Jumper(Boss)
       objectReference: {fileID: 0}
     - target: {fileID: 8580006061567954283, guid: 699d500776cbf984caeeac458bd36a27,
         type: 3}
