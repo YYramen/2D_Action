@@ -11,4 +11,12 @@ public class PlayerBulletEffectControl : MonoBehaviour
     {
         Destroy(this.gameObject, m_lifetime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "PowerUp")
+        {
+            return;
+        }
+    }
 }

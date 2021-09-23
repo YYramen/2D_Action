@@ -38,11 +38,16 @@ public class EnemyControl : MonoBehaviour
             m_slider.value -= m_reduceSlider;
             Destroy(gameObject);
         }
+
+        if(m_enemyHealth < 0)
+        {
+            m_enemyHealth = 1;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == ("Bullet"))
+        if (collision.gameObject.tag == ("Bomb"))
         {
             m_enemyHealth -= 1;
         }

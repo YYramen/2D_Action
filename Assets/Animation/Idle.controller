@@ -164,7 +164,6 @@ AnimatorState:
   m_Transitions:
   - {fileID: -4464770461579569598}
   - {fileID: 1835780788643116042}
-  - {fileID: 5516091765639611219}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -198,9 +197,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -4209081398089308802}
     m_Position: {x: 560, y: 110, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -7175259244386153514}
-    m_Position: {x: 240, y: -10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -295,7 +291,6 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5456436296329976133}
-  - {fileID: -6920303270356501919}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -358,12 +353,6 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: RunShot
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Damage
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -522,7 +511,6 @@ AnimatorState:
   m_Transitions:
   - {fileID: -1405948946422999883}
   - {fileID: -1327058567330328515}
-  - {fileID: 6931637616130113806}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0

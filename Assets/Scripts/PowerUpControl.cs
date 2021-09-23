@@ -34,15 +34,14 @@ public class PowerUpControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.tag == "Bulet")
+        {
+            return;
+        }
         if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
             //m_slider.value += m_increaseSlider;
-        }
-        if (collision.gameObject.tag == "Bullet")
-        {
-            Instantiate(m_effectPrefab, this.transform.position, Quaternion.identity);
-            Destroy(gameObject);
         }
     }
 }

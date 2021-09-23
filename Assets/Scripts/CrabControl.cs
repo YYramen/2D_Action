@@ -44,6 +44,11 @@ public class CrabControl : MonoBehaviour
             }
         }
 
+        if(m_enemyHealth < 0)
+        {
+            m_enemyHealth = 1;
+        }
+
         if (m_enemyHealth == 0 && m_death)
         {
             Instantiate(m_death, this.transform.position, Quaternion.identity);
@@ -68,7 +73,7 @@ public class CrabControl : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.tag == "Bomb")
         {
             m_enemyHealth -= 1;
         }

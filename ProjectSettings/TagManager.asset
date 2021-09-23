@@ -12,6 +12,7 @@ TagManager:
   - EnemyBullet
   - Lava
   - PowerUp
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - 
   - Player
   - Bullet
-  - 
-  - 
+  - PlayerDamage
+  - Enemy
   - 
   - 
   - 

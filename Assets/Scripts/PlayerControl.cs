@@ -17,7 +17,9 @@ public class PlayerControl : MonoBehaviour
     /// <summary>弾のプレハブ </summary>
     [SerializeField] GameObject m_bulletPrefab = null;
     /// <summary>弾を発射する位置 </summary>
-    [SerializeField] Transform m_muzzle = null;
+    [SerializeField] Transform m_muzzle1 = null;
+    [SerializeField] Transform m_muzzle2 = null;
+    [SerializeField] Transform m_muzzle3 = null;
     /// <summary>弾の上限</summary>
     [SerializeField] int m_bulletLimit;
     /// <summary>弾のカウント</summary>
@@ -29,6 +31,7 @@ public class PlayerControl : MonoBehaviour
     Slider m_healthSlider = default;
     float m_h;
 
+    SpriteRenderer m_sprite;
     Rigidbody2D m_rb;
     Animator m_anim;
 
@@ -40,6 +43,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_sprite = GetComponent<SpriteRenderer>();
         m_anim = GetComponent<Animator>();
         m_rb = GetComponent<Rigidbody2D>();
         m_healthSlider = GameObject.Find("Slider3").GetComponent<Slider>();
@@ -92,8 +96,15 @@ public class PlayerControl : MonoBehaviour
             m_isRunShot = true;
             Fire();
             m_bulletCount++;
-            
         }
+        
+        if(m_powerUpSlider.value >= 0.2f)
+            if(Input.GetButtonDown("Fire2"))
+            {
+                m_isRunShot = true;
+                Shotgun();
+                m_bulletCount++;
+            }
 
         if(m_health == 0)
         {
@@ -102,20 +113,26 @@ public class PlayerControl : MonoBehaviour
 
         if (m_anim)
         {
-            m_anim.SetBool("Damage", m_isDamage);
             m_anim.SetBool("Run", m_isRun);
             m_anim.SetBool("Jump", m_isJump);
             m_anim.SetBool("RunShot", m_isRunShot);
+        }
+
+        if(m_isDamage)
+        {
+            gameObject.layer = LayerMask.NameToLayer("PlayerDamage");
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 10));
+            m_sprite.color = new Color(1f, 1f, 1f, level);
         }
     }
 
     void Fire()
     {
-        if (m_bulletPrefab && m_muzzle)
+        if (m_bulletPrefab && m_muzzle1)
         {
             if (m_bulletCount < m_bulletLimit)
             {
-                GameObject go = Instantiate(m_bulletPrefab, m_muzzle.position, m_bulletPrefab.transform.rotation);  // インスペクターから設定した m_bulletPrefab をインスタンス化する
+                GameObject go = Instantiate(m_bulletPrefab, m_muzzle1.position, m_bulletPrefab.transform.rotation);  // インスペクターから設定した m_bulletPrefab をインスタンス化する
                 if (this.transform.localScale.x < 0)
                 {
                     go.transform.Rotate(new Vector3(0, 0, 180f));
@@ -124,6 +141,35 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    void Shotgun()
+    {
+        if(m_powerUpSlider.value >= 0.2f)
+        {
+            if(m_bulletPrefab)
+            {
+                if(m_bulletCount < m_bulletLimit)
+                {
+                    GameObject go1 = Instantiate(m_bulletPrefab, m_muzzle1.position, m_bulletPrefab.transform.rotation);  // インスペクターから設定した m_bulletPrefab をインスタンス化する
+                    if (this.transform.localScale.x < 0)
+                    {
+                        go1.transform.Rotate(new Vector3(0, 0, 180f));
+                    }
+
+                    GameObject go2 = Instantiate(m_bulletPrefab, m_muzzle2.position, m_bulletPrefab.transform.rotation);  // インスペクターから設定した m_bulletPrefab をインスタンス化する
+                    if (this.transform.localScale.x < 0)
+                    {
+                        go2.transform.Rotate(new Vector3(0, 0, 180f));
+                    }
+
+                    GameObject go3 = Instantiate(m_bulletPrefab, m_muzzle3.position, m_bulletPrefab.transform.rotation);  // インスペクターから設定した m_bulletPrefab をインスタンス化する
+                    if (this.transform.localScale.x < 0)
+                    {
+                        go3.transform.Rotate(new Vector3(0, 0, 180f));
+                    }
+                }
+            }
+        }
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         m_jump = true;
@@ -132,17 +178,32 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(m_isDamage)
+        {
+            return;
+        }
+
         if(collision.gameObject.tag == "Enemy")
         {
+            m_isDamage = true;
+            StartCoroutine(OnDamage());
             m_health -= 1;
             m_healthSlider.value -= m_reduceSlider;
             m_powerUpSlider.value -= m_reduceSlider;
-            m_isDamage = true;
+            
         }
 
         if(collision.gameObject.tag == "PowerUp")
         {
             m_powerUpSlider.value += m_increaseSlider;
         }
+    }
+
+    public IEnumerator OnDamage()
+    {
+        yield return new WaitForSeconds(4.0f);
+
+        m_isDamage = false;
+        m_sprite.color = new Color(1f, 1f, 1f, 1f);
     }
 }

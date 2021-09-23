@@ -51,13 +51,13 @@ public class BulletControl : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         m_playerScript.m_bulletCount = 0;
+        if (collision.CompareTag("Player"))
+        {
+            return;
+        }
         if (m_effectPrefab)
         {
             Instantiate(m_effectPrefab, this.transform.position, this.transform.rotation);
-        }
-        if (collision.CompareTag("Player"))
-        {
-            
         }
         Destroy(gameObject);
     }

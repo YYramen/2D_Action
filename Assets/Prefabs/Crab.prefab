@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5237599140011892979}
   - component: {fileID: 8948847554185633143}
   - component: {fileID: 8948847554185633142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Crab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8948847554404620437}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

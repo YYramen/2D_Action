@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 706565836647090497}
   - component: {fileID: 706565836647090499}
   - component: {fileID: 706565836647090498}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Octopus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 706565837701296989}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
