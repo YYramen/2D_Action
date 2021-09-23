@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 敵を生成するコンポーネント
@@ -16,6 +17,7 @@ public class EnemyGenerateControl : MonoBehaviour
 {
     /// <summary>ウエーブとして生成するプレハブの配列</summary>
     [SerializeField] GameObject[] m_enemyPrefabs = null;
+    [SerializeField] GameObject m_boss = null;
     //　次に敵が出現するまでの時間
     [SerializeField] float m_appearNextTime;
     //　この場所から出現する敵の数
@@ -24,6 +26,9 @@ public class EnemyGenerateControl : MonoBehaviour
     public int m_numberOfEnemys;
     //　待ち時間計測フィールド
     private float m_elapsedTime;
+
+    Slider m_slider = default;
+    float m_reduceSlider = 0.05f;
 
     GameObject m_object = default;
     GameObject m_enemyGenerator = default;
@@ -34,12 +39,18 @@ public class EnemyGenerateControl : MonoBehaviour
         m_numberOfEnemys = 0;
         m_elapsedTime = 0f;
         m_enemyGenerator = GameObject.Find("EnemyGenerator");
+        m_slider = GameObject.Find("Slider").GetComponent<Slider>();
     }
     void Update()
     {
         if (m_numberOfEnemys >= m_maxNumOfEnemys)
         {
             return;
+        }
+
+        if (m_numberOfEnemys == m_maxNumOfEnemys)
+        {
+            AppearBoss();
         }
 
         //　経過時間を足す
@@ -60,7 +71,16 @@ public class EnemyGenerateControl : MonoBehaviour
 
         GameObject.Instantiate(m_enemyPrefabs[randomValue], transform.position, Quaternion.identity);
 
+        m_slider.value -= m_reduceSlider;
         m_numberOfEnemys++;
         m_elapsedTime = 0f;
+    }
+
+    void AppearBoss()
+    {
+        if(m_numberOfEnemys == m_maxNumOfEnemys && m_boss)
+        {
+            Instantiate(m_boss, transform.position, Quaternion.identity);
+        }
     }
 }

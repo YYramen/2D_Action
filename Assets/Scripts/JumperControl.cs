@@ -10,7 +10,6 @@ public class JumperControl : MonoBehaviour
     [SerializeField] Transform m_muzzle2 = null;
     [SerializeField] Transform m_muzzle3 = null;
     [SerializeField] GameObject m_death = default;
-    [SerializeField] GameObject m_powerUp = default;
 
     [SerializeField] float m_lifeTime = 10f;
     [SerializeField] float m_enemyHealth = 1f;
@@ -32,7 +31,6 @@ public class JumperControl : MonoBehaviour
         if (m_enemyHealth == 0)
         {
             Instantiate(m_death, this.transform.position, Quaternion.identity);
-            Instantiate(m_powerUp, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

@@ -113,6 +113,7 @@
     <Compile Include="Assets\Scripts\PlayerBulletEffectControl.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PowerUpControl.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\BaseClasses\Action.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\BaseClasses\ConditionBase.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\BaseClasses\Physics2DObject.cs" />

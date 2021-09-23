@@ -10,12 +10,10 @@ public class CrabControl : MonoBehaviour
     [SerializeField] Transform m_muzzle = null;
     [SerializeField] GameObject m_death = default;
     [SerializeField] GameObject m_powerUp = default;
-    [SerializeField] float m_reduceSlider = 0.05f;
 
     [SerializeField] float m_moveSpeed = -5f;
     float m_enemyHealth = 2f;
 
-    Slider m_slider = default;
     bool m_isGround;
     float m_targetTime = 1.0f;
     float m_currentTime = 0;
@@ -29,7 +27,6 @@ public class CrabControl : MonoBehaviour
             m_enemyHealth = 2;
         }
         m_rb = GetComponent<Rigidbody2D>();
-        m_slider = GameObject.Find("Slider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -51,7 +48,6 @@ public class CrabControl : MonoBehaviour
         {
             Instantiate(m_death, this.transform.position, Quaternion.identity);
             Instantiate(m_powerUp, this.transform.position, Quaternion.identity);
-            m_slider.value -= m_reduceSlider;
             Destroy(gameObject);
         }
     }
