@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Attributes\ModifyHealthAttribute.cs" />
     <Compile Include="Assets\Scripts\Attributes\ResourceAttribute.cs" />
     <Compile Include="Assets\Scripts\BackGroundControl.cs" />
+    <Compile Include="Assets\Scripts\BossBulletControl.cs" />
     <Compile Include="Assets\Scripts\BoundControl.cs" />
     <Compile Include="Assets\Scripts\BulletControl.cs" />
     <Compile Include="Assets\Scripts\Conditions\Actions\ConsumeResourceAction.cs" />

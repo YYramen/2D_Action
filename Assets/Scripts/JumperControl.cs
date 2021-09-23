@@ -41,10 +41,5 @@ public class JumperControl : MonoBehaviour
         {
             m_enemyHealth -= 1;
         }
-
-        if (collision.gameObject.tag == ("Lava"))
-        {
-            Destroy(this.gameObject);
-        }
     }
 }

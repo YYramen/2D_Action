@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 3317230770461264068}
   - component: {fileID: 5683236587116307022}
   m_Layer: 0
-  m_Name: Jumper
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8580006061567954280
 Transform:
   m_ObjectHideFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8580006061567954283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.14, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.9072, y: 2.9072, z: 2.9072}
   m_Children:
   - {fileID: 1927590720207387848}
   - {fileID: 1990526369905557544}
@@ -115,7 +115,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -143,13 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9237c71e92b14f64b8896da3aecf4e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyBulletPrefab: {fileID: 0}
+  m_enemyBulletPrefab: {fileID: 4338509004960982204, guid: b5c6853a7699ea64a91774d8aff2635d,
+    type: 3}
   m_muzzle: {fileID: 1927590720207387848}
   m_muzzle2: {fileID: 1990526369905557544}
   m_death: {fileID: 0}
   m_powerUp: {fileID: 0}
   m_lifeTime: 10
-  m_enemyHealth: 1
+  m_enemyHealth: 30
 --- !u!1 &8836684105881735704
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8836684105881735704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76, y: 0.38, z: 0}
+  m_LocalPosition: {x: -0.54, y: -0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8580006061567954280}
@@ -204,7 +205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9056389568871806187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0.49, y: -0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8580006061567954280}

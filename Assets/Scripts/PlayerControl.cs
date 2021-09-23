@@ -29,8 +29,6 @@ public class PlayerControl : MonoBehaviour
     Slider m_healthSlider = default;
     float m_h;
 
-    //[SerializeField] float m_playerHealth = 1f;
-
     Rigidbody2D m_rb;
     Animator m_anim;
 
@@ -136,7 +134,7 @@ public class PlayerControl : MonoBehaviour
         {
             m_health -= 1;
             m_healthSlider.value -= m_reduceSlider;
-            m_powerUpSlider.value = 0;
+            m_powerUpSlider.value -= m_reduceSlider;
         }
 
         if(collision.gameObject.tag == "PowerUp")

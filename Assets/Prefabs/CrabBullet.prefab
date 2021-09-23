@@ -155,9 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialSpeed: 30
-  m_effectPrefab: {fileID: 451116165878334177, guid: 99a46395339d8f847a500a174b57e3f6,
+  m_effectPrefab: {fileID: 451116165878334177, guid: 71dc0fff63788ae428b99e186c6e3fd4,
     type: 3}
-  m_reduceSlider: 0.05
 --- !u!96 &-5247774781056616672
 TrailRenderer:
   serializedVersion: 2
