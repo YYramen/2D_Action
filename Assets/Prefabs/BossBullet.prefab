@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01b61f940d4efe4b89b4e7f37aca793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_velocity_0: 0
-  theta: 0
+  m_bulletSpeed: 20
   m_effectPrefab: {fileID: 451116165878334177, guid: e586e732bbeac514f9aa3d1909debae8,
     type: 3}

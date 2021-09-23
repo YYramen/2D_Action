@@ -9389,7 +9389,7 @@ Transform:
   - {fileID: 1788915047}
   - {fileID: 231698287}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058699266
 GameObject:
@@ -10432,7 +10432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054224804
 GameObject:
@@ -10757,7 +10757,7 @@ PrefabInstance:
     - target: {fileID: 4338509004960982199, guid: b5c6853a7699ea64a91774d8aff2635d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4338509004960982199, guid: b5c6853a7699ea64a91774d8aff2635d,
         type: 3}
@@ -10913,6 +10913,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c82560a526b9e944581aefd56b105135, type: 2}
+    - target: {fileID: 6737386160303207422, guid: b99613bb9d1133a49be78e7038bbcec5,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b99613bb9d1133a49be78e7038bbcec5, type: 3}
 --- !u!1001 &8580006061195541475
@@ -10922,15 +10927,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5683236587116307022, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_targetTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8580006061567954280, guid: 699d500776cbf984caeeac458bd36a27,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8580006061567954280, guid: 699d500776cbf984caeeac458bd36a27,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.14
+      value: 13.77
       objectReference: {fileID: 0}
     - target: {fileID: 8580006061567954280, guid: 699d500776cbf984caeeac458bd36a27,
         type: 3}
@@ -10981,6 +10991,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580006061567954283, guid: 699d500776cbf984caeeac458bd36a27,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 699d500776cbf984caeeac458bd36a27, type: 3}

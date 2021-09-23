@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D m_rb;
     Animator m_anim;
 
+    bool m_isDamage = false;
     bool m_isRun = false;
     bool m_isJump = false;
     bool m_isRunShot = false;
@@ -101,6 +102,7 @@ public class PlayerControl : MonoBehaviour
 
         if (m_anim)
         {
+            m_anim.SetBool("Damage", m_isDamage);
             m_anim.SetBool("Run", m_isRun);
             m_anim.SetBool("Jump", m_isJump);
             m_anim.SetBool("RunShot", m_isRunShot);
@@ -135,6 +137,7 @@ public class PlayerControl : MonoBehaviour
             m_health -= 1;
             m_healthSlider.value -= m_reduceSlider;
             m_powerUpSlider.value -= m_reduceSlider;
+            m_isDamage = true;
         }
 
         if(collision.gameObject.tag == "PowerUp")

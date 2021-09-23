@@ -13,7 +13,7 @@ public class CrabBulletControl : MonoBehaviour
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
-        m_rb.velocity = Vector3.left * m_initialSpeed;
+        m_rb.velocity = Vector2.left * m_initialSpeed;
     }
 
     // Update is called once per frame
