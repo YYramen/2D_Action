@@ -21,7 +21,7 @@ public class EnemyGenerateControl : MonoBehaviour
     //　この場所から出現する敵の数
     [SerializeField] int m_maxNumOfEnemys;
     //　今何人の敵を出現させたか（総数）
-    private int m_numberOfEnemys;
+    public int m_numberOfEnemys;
     //　待ち時間計測フィールド
     private float m_elapsedTime;
 

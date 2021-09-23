@@ -6,13 +6,15 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControl : MonoBehaviour
 {
-    [SerializeField] float m_health = 3f;
+    [SerializeField] float m_health = 5f;
     /// <summary>移動時の速度 </summary>
     [SerializeField] float m_speed = 5f;
     /// <summary>ジャンプ時にかける力 </summary>
     [SerializeField] float m_jumppower = 1f;
     /// <summary>接地フラグ </summary>
     bool m_jump = false;
+    float m_maxSpeed = 20;
+    float m_maxJumpPower = 20;
 
     /// <summary>弾のプレハブ </summary>
     [SerializeField] GameObject m_bulletPrefab = null;
@@ -35,6 +37,7 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D m_rb;
     Animator m_anim;
 
+    bool m_isShotgun = false;
     bool m_isDamage = false;
     bool m_isRun = false;
     bool m_isJump = false;
@@ -53,6 +56,16 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(m_speed > m_maxSpeed)
+        {
+            m_speed = m_maxSpeed;
+        }
+
+        if(m_jumppower > m_maxJumpPower)
+        {
+            m_jumppower = m_maxJumpPower;
+        }
+
         Vector3 scale = transform.localScale;
         m_h = Input.GetAxisRaw("Horizontal");
 
@@ -97,14 +110,16 @@ public class PlayerControl : MonoBehaviour
             Fire();
             m_bulletCount++;
         }
-        
-        if(m_powerUpSlider.value >= 0.2f)
-            if(Input.GetButtonDown("Fire2"))
+
+        if (m_isShotgun == true)
+        {
+            if (Input.GetButtonDown("Fire2"))
             {
                 m_isRunShot = true;
                 Shotgun();
                 m_bulletCount++;
             }
+        }
 
         if(m_health == 0)
         {
@@ -143,7 +158,7 @@ public class PlayerControl : MonoBehaviour
 
     void Shotgun()
     {
-        if(m_powerUpSlider.value >= 0.2f)
+        if(m_isShotgun == true)
         {
             if(m_bulletPrefab)
             {
@@ -189,15 +204,43 @@ public class PlayerControl : MonoBehaviour
             StartCoroutine(OnDamage());
             m_health -= 1;
             m_healthSlider.value -= m_reduceSlider;
-            m_powerUpSlider.value -= m_reduceSlider;
-            
         }
 
         if(collision.gameObject.tag == "PowerUp")
         {
             m_powerUpSlider.value += m_increaseSlider;
+            if(m_powerUpSlider.value == 0.2f)
+            {
+                m_isShotgun = true;
+            }
+            if(m_powerUpSlider.value == 0.4f)
+            {
+                m_speed += 5;
+            }
+            if(m_powerUpSlider.value == 0.6f)
+            {
+                m_jumppower += 5;
+            }
+            if(m_powerUpSlider.value == 0.8f)
+            {
+                m_bulletLimit += 2;
+            }
+            if(m_powerUpSlider.value == 1f)
+            {
+                if (m_healthSlider.value == 1 && m_health == 5)
+                {
+                    m_powerUpSlider.value = 0;
+                }
+                else
+                {
+                    m_health += 1;
+                    m_healthSlider.value += 0.2f;
+                    m_powerUpSlider.value = 0f;
+                }
+            }
         }
     }
+    
 
     public IEnumerator OnDamage()
     {

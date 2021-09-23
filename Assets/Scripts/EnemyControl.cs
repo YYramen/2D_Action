@@ -13,12 +13,16 @@ public class EnemyControl : MonoBehaviour
 
     Slider m_slider = default;
     [SerializeField] float m_lifeTime = 10f;
-    [SerializeField] float m_enemyHealth = 1f;
+    float m_enemyHealth = 2f;
     float m_targetTime = 1.0f;
     float m_currentTime = 0;
 
     private void Start()
     {
+        if(m_enemyHealth != 2)
+        {
+            m_enemyHealth = 2;
+        }
         m_slider = GameObject.Find("Slider").GetComponent<Slider>();
     }
     // Update is called once per frame
@@ -31,23 +35,18 @@ public class EnemyControl : MonoBehaviour
             m_currentTime = 0;
         }
 
-        if (m_enemyHealth == 0)
+        if (m_enemyHealth < 0)
         {
             Instantiate(m_death, this.transform.position, Quaternion.identity);
             Instantiate(m_powerUp, this.transform.position, Quaternion.identity);
             m_slider.value -= m_reduceSlider;
             Destroy(gameObject);
         }
-
-        if(m_enemyHealth < 0)
-        {
-            m_enemyHealth = 1;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == ("Bomb"))
+        if (collision.gameObject.tag == ("Bullet"))
         {
             m_enemyHealth -= 1;
         }

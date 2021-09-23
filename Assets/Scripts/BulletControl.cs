@@ -28,15 +28,6 @@ public class BulletControl : MonoBehaviour
         m_playerScript = m_player.GetComponent<PlayerControl>();
     }
 
-    
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Enemyタグをもつゲームオブジェクト当たったら消滅
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Instantiate(m_effectPrefab, this.transform.position, this.transform.rotation);
-        }
-    }
     void Update()
     {
         // クリックした座標の取得（スクリーン座標からワールド座標に変換）
@@ -55,7 +46,15 @@ public class BulletControl : MonoBehaviour
         {
             return;
         }
-        if (m_effectPrefab)
+        else if (collision.gameObject.tag == "Bullet")
+        {
+            return;
+        }
+        else if(collision.gameObject.tag == "PowerUp")
+        {
+            return;
+        }
+        else
         {
             Instantiate(m_effectPrefab, this.transform.position, this.transform.rotation);
         }

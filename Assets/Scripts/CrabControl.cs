@@ -13,7 +13,7 @@ public class CrabControl : MonoBehaviour
     [SerializeField] float m_reduceSlider = 0.05f;
 
     [SerializeField] float m_moveSpeed = -5f;
-    [SerializeField] float m_enemyHealth = 1f;
+    float m_enemyHealth = 2f;
 
     Slider m_slider = default;
     bool m_isGround;
@@ -24,7 +24,10 @@ public class CrabControl : MonoBehaviour
 
     void Start()
     {
-        //this.transform.position = new Vector3()
+        if(m_enemyHealth != 2)
+        {
+            m_enemyHealth = 2;
+        }
         m_rb = GetComponent<Rigidbody2D>();
         m_slider = GameObject.Find("Slider").GetComponent<Slider>();
     }
@@ -44,12 +47,7 @@ public class CrabControl : MonoBehaviour
             }
         }
 
-        if(m_enemyHealth < 0)
-        {
-            m_enemyHealth = 1;
-        }
-
-        if (m_enemyHealth == 0 && m_death)
+        if (m_enemyHealth < 0 && m_death)
         {
             Instantiate(m_death, this.transform.position, Quaternion.identity);
             Instantiate(m_powerUp, this.transform.position, Quaternion.identity);
@@ -73,7 +71,7 @@ public class CrabControl : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.tag == "Bomb")
+        if(collision.gameObject.tag == "Bullet")
         {
             m_enemyHealth -= 1;
         }
