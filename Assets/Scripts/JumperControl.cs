@@ -7,7 +7,6 @@ public class JumperControl : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject m_enemyBulletPrefab = default;
     [SerializeField] Transform m_muzzle = null;
-    [SerializeField] Transform m_muzzle2 = null;
     [SerializeField] GameObject m_death = default;
     [SerializeField] GameObject m_powerUp = default;
 
@@ -23,7 +22,6 @@ public class JumperControl : MonoBehaviour
         if (m_targetTime < m_currentTime)
         {
             Instantiate(m_enemyBulletPrefab, m_muzzle.position, this.transform.rotation);
-            Instantiate(m_enemyBulletPrefab, m_muzzle2.position, this.transform.rotation);
             m_currentTime = 0;
         }
 

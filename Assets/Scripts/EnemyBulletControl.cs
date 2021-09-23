@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyBulletControl : MonoBehaviour
 {
-    //[SerializeField] float m_bulletPower = 0.5f;
     [SerializeField] float m_bulletSpeed = 5f;
     GameObject m_player = default;
     [SerializeField] GameObject m_effectPrefab = default;
@@ -16,7 +15,6 @@ public class EnemyBulletControl : MonoBehaviour
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_player = GameObject.Find("Player");
-        //m_effectPrefab = GameObject.Find("OctopusBulletEffect");
 
         if (m_player)
         {
