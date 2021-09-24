@@ -64,6 +64,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Beautiful Interface\Editor\ButtonUIEditor.cs" />
+    <Compile Include="Assets\Beautiful Interface\Editor\InputUIEditor.cs" />
+    <Compile Include="Assets\Beautiful Interface\Editor\ReplaceElements.cs" />
+    <Compile Include="Assets\Beautiful Interface\Editor\TextUIEditor.cs" />
+    <Compile Include="Assets\Beautiful Interface\Editor\ToggleUIEditor.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\Editor\Attributes\BulletAttrInspector.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\Editor\Attributes\CollectableAttrInspector.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\Editor\Attributes\DestroyForPointsAttrInspector.cs" />

@@ -8,11 +8,6 @@ using UnityEngine.SceneManagement;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] float m_health = 5f;
-    [SerializeField] Image m_panel = null;
-    [SerializeField] float m_fadeSpeed = 1f;
-    [SerializeField] string m_sceneNameToBeLoaded = "SceneNameToBeLoaded";
-    public bool m_isLoadStarted = false;
-
     /// <summary>移動時の速度 </summary>
     [SerializeField] float m_speed = 5f;
     /// <summary>ジャンプ時にかける力 </summary>
@@ -62,25 +57,6 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_health == 0)
-        {
-            m_isLoadStarted = true;
-
-            if (m_isLoadStarted && m_panel)
-            {
-                Color panelColor = m_panel.color;
-                panelColor.a += m_fadeSpeed * Time.deltaTime;
-                m_panel.color = panelColor;
-
-                // ほぼ不透明になったら
-                if (panelColor.a > 0.99f)
-                {
-                    // シーンをロードする
-                    SceneManager.LoadScene(m_sceneNameToBeLoaded);
-                    m_isLoadStarted = false;
-                }
-            }
-        }
         if(m_speed > m_maxSpeed)
         {
             m_speed = m_maxSpeed;
@@ -209,21 +185,6 @@ public class PlayerControl : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void LoadScene()
-    {
-        m_isLoadStarted = true;
-    }
-
-    /// <summary>
-    /// 名前を指定してシーンをロードする
-    /// </summary>
-    /// <param name="sceneName"></param>
-    public void LoadScene(string sceneName)
-    {
-        m_isLoadStarted = true;
-        m_sceneNameToBeLoaded = sceneName;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

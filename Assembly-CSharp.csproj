@@ -64,6 +64,65 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Beautiful Interface\Demo\Scripts\Login.cs" />
+    <Compile Include="Assets\Beautiful Interface\Demo\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Beautiful Interface\Demo\Scripts\Multiplayer.cs" />
+    <Compile Include="Assets\Beautiful Interface\Demo\Scripts\Register.cs" />
+    <Compile Include="Assets\Beautiful Interface\Demo\Scripts\Reset.cs" />
+    <Compile Include="Assets\Beautiful Interface\Demo\Scripts\Title.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\BasePanel.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\ButtonGroup.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\ButtonUI.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\CanvasGroupExtend.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\InputUI.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\LoaderUI.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\Notification.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\TextUI.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\ToggleUI.cs" />
+    <Compile Include="Assets\Beautiful Interface\Elements\Scripts\WindowManager.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\AnchoredPositionTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\AnchoredPositionXTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\AnchoredPositionYTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\AudioSourcePitchTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\AudioSourceVolumeTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\CancelAllTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\CanvasGroupAlphaTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\Core\EaseType.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\Core\Easer.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\Core\ITween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\Core\Tween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\DelayedInvokeTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\EulerAnglesTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\EulerAnglesXTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\EulerAnglesYTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\EulerAnglesZTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\GraphicAlphaTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\GraphicColorTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\ImageFillAmountTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalEulerAnglesTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalEulerAnglesXTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalEulerAnglesYTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalEulerAnglesZTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalPositionTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalPositionXTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalPositionYTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalPositionZTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalScaleTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalScaleXTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalScaleYTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\LocalScaleZTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\MaterialAlphaTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\MaterialColorTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\PositionTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\PositionXTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\PositionYTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\PositionZTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\SpriteRendererAlphaTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\SpriteRendererColorTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\TextMeshAlphaTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\ValueColorTween.cs" />
+    <Compile Include="Assets\Beautiful Interface\Tweens\ValueFloatTween.cs" />
     <Compile Include="Assets\CursorsAndCrosshairs\CursorChanger.cs" />
     <Compile Include="Assets\Scripts\Attributes\BulletAttribute.cs" />
     <Compile Include="Assets\Scripts\Attributes\CollectableAttribute.cs" />
@@ -124,6 +183,7 @@
     <Compile Include="Assets\_INTERNAL_\Scripts\Utilities\Enums.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\Utilities\InventoryResources.cs" />
     <Compile Include="Assets\_INTERNAL_\Scripts\Utilities\Utils.cs" />
+    <None Include="Assets\Beautiful Interface\Elements\Fonts\Chakra_Petch\OFL.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.25f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
