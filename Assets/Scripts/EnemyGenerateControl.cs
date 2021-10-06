@@ -48,7 +48,7 @@ public class EnemyGenerateControl : MonoBehaviour
             return;
         }
 
-        if (m_numberOfEnemys == m_maxNumOfEnemys)
+        if (m_slider.value == 1 || m_numberOfEnemys == m_maxNumOfEnemys)
         {
             AppearBoss();
         }
@@ -63,6 +63,8 @@ public class EnemyGenerateControl : MonoBehaviour
 
             AppearEnemy();
         }
+
+
     }
     void AppearEnemy()
     {

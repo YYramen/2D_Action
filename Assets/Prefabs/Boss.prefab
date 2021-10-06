@@ -210,10 +210,10 @@ MonoBehaviour:
   m_muzzle2: {fileID: 92481566}
   m_muzzle3: {fileID: 924752424}
   m_death: {fileID: 0}
-  m_powerUp: {fileID: 0}
+  m_sceneNameToBeLoaded: Openning
   m_lifeTime: 10
-  m_enemyHealth: 1
-  m_targetTime: 1
+  m_enemyHealth: 10
+  m_targetTime: 0.5
   m_currentTime: 0
 --- !u!1 &8836684105881735704
 GameObject:

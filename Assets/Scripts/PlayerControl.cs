@@ -43,6 +43,10 @@ public class PlayerControl : MonoBehaviour
     bool m_isRun = false;
     bool m_isJump = false;
     bool m_isRunShot = false;
+    bool m_isLoadStarted = false;
+
+    [SerializeField] string m_sceneNameToBeLoaded = "SceneNameToBeLoaded";
+    
 
     // Start is called before the first frame update
     void Start()
@@ -124,7 +128,7 @@ public class PlayerControl : MonoBehaviour
 
         if(m_health == 0)
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene(m_sceneNameToBeLoaded);
         }
 
         if (m_anim)
@@ -250,5 +254,11 @@ public class PlayerControl : MonoBehaviour
 
         m_isDamage = false;
         m_sprite.color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        m_isLoadStarted = true;
+        m_sceneNameToBeLoaded = sceneName;
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;      // UI を操作するために追加している
+using UnityEngine.SceneManagement;  // シーン遷移を行うために追加している
 
 public class JumperControl : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class JumperControl : MonoBehaviour
     [SerializeField] Transform m_muzzle2 = null;
     [SerializeField] Transform m_muzzle3 = null;
     [SerializeField] Animator m_death = default;
+    [SerializeField] string m_sceneNameToBeLoaded = "SceneNameToBeLoaded";
 
     [SerializeField] float m_lifeTime = 10f;
     [SerializeField] float m_enemyHealth = 1f;
@@ -35,8 +38,7 @@ public class JumperControl : MonoBehaviour
 
         if (m_enemyHealth == 0)
         {
-            Instantiate(m_death.Play("Death"), this.transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            SceneManager.LoadScene(m_sceneNameToBeLoaded);
         }
     }
 
